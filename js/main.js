@@ -25,16 +25,11 @@
             
             return Promise.resolve(exCameras);
         }).then(function(ids){
-            if(ids.length === 0)
+            if(ids.length === 0 || 1)
             {
-              return Promise.reject('Could not find a webcam');
-            }
-
-             if(ids.length === 1)
-            {
-              catch(e) 
-            }
-             
+              document.getElementById("scannedTextMemo").innerHTML = "Your device does not have a rear facing camera";
+              return
+            }       
             var constraints= { video: { facingMode: { exact: "environment" } } };
             return navigator.mediaDevices.getUserMedia(constraints);       
         });                
