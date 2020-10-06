@@ -25,14 +25,14 @@
             
             return Promise.resolve(exCameras);
         }).then(function(ids){
-            if(ids.length === 0 || 1)
+            if(ids.length === 0)
             {
-              document.getElementById("scannedTextMemo").innerHTML = "Your device does not have a rear facing camera";
-              return
-            }       
-            var constraints= { video: { facingMode: { exact: "environment" } } };
-            return navigator.mediaDevices.getUserMedia(constraints);       
-        });                
+              document.getElementById("scannedTextMemo").innerHTML = "Your device does not have a camera";
+            } else {
+              var constraints= { video: { facingMode: "environment" } };
+              return navigator.mediaDevices.getUserMedia(constraints);       
+            }      
+        });               
     }  
   
     //this function will be called when JsQRScanner is ready to use
