@@ -29,6 +29,11 @@
             {
               return Promise.reject('Could not find a webcam');
             }
+
+             if(ids.length === 1)
+            {
+              catch(e) 
+            }
              
             var constraints= { video: { facingMode: { exact: "environment" } } };
             return navigator.mediaDevices.getUserMedia(constraints);       
