@@ -58,53 +58,16 @@
         </div>
 
         <h1 class="hidden"> Museum of Ontario Archaeology - AR section</h1>
-        <!-- Camera Reader -->
-        <h1>JsQRScanner example</h1>
-      <div class="row-element">
-        <div class="FlexPanel detailsPanel QRScannerShort">
-          <div class="FlexPanel shortInfoPanel">
-            <div class="gwt-HTML">
-              Point the webcam to a QR code.
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div class="row-element">
+        <!-- Camera Reader --> 
+        <h2 id="scannedTextMemo">
+            Please scan a QR Code...
+        </h2>    
         <div class="qrscanner" id="scanner">
-        </div>
-      </div>
-      <div class="row-element">
-        <div class="form-field form-field-memo">
-          <div class="form-field-caption-panel">
-            <div class="gwt-Label form-field-caption">
-              Scanned text
-            </div>
-          </div>
-          <div class="FlexPanel form-field-input-panel">
-            <textarea id="scannedTextMemo" class="textInput form-memo form-field-input textInput-readonly" rows="3" readonly>
-            </textarea>
-          </div>
-        </div>
-        <div class="form-field form-field-memo">
-          <div class="form-field-caption-panel">
-            <div class="gwt-Label form-field-caption">
-              Scanned text history
-            </div>
-          </div>
-          <div class="FlexPanel form-field-input-panel">
-            <textarea id="scannedTextMemoHist" class="textInput form-memo form-field-input textInput-readonly" value="" rows="6" readonly>
-            </textarea>
-          </div>
-        </div>
-      </div>
+        </div> 
+        <button id="restartCamera">Restart Camera</button>     
         <!-- Camera Reader -->
 
         <!-- Footer -->
-        <div id="output">
-            <div id="outputMessage">No QR code detected.</div>
-            <div hidden=""><b>Data:</b><span id="outputData"></span></div>
-        </div>
         <section class="qr-instruction">
             <section>
                 <h2 class="hidden">Instruction</h2>

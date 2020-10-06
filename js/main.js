@@ -1,14 +1,17 @@
+  let resetButton = document.querySelector("#restartCamera")
 
-    function onQRCodeScanned(scannedText)
+
+  function onQRCodeScanned(scannedText)
     {
       var scannedTextMemo = document.getElementById("scannedTextMemo");
       if(scannedTextMemo)
       {
-        scannedTextMemo.value = scannedText;
+        scannedTextMemo.innerHTML = `Please Wait`;
+        window.location.assign(scannedText);
       }
     }
     
-    //funtion returning a promise with a video stream
+    //function returning a promise with a video stream
     function provideVideoQQ()
     {
         return navigator.mediaDevices.enumerateDevices()
@@ -26,14 +29,9 @@
             {
               return Promise.reject('Could not find a webcam');
             }
-            
-            return navigator.mediaDevices.getUserMedia({
-                video: {
-                  'optional': [{
-                    'sourceId': ids.length === 1 ? ids[0] : ids[0]//this way QQ browser opens the rear camera
-                    }]
-                }
-            });        
+             
+            var constraints= { video: { facingMode: { exact: "environment" } } };
+            return navigator.mediaDevices.getUserMedia(constraints);       
         });                
     }  
   
@@ -52,3 +50,13 @@
         jbScanner.appendTo(scannerParentElement);
       }        
     }
+
+    function restartCamera()
+    {
+      location.reload();
+    }
+
+    resetButton.addEventListener("click", restartCamera);
+
+
+ 
