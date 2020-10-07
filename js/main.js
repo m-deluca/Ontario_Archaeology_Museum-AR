@@ -1,9 +1,8 @@
   let resetButton = document.querySelector("#restartCamera")
 
-
   function onQRCodeScanned(scannedText)
     {
-      var scannedTextMemo = document.getElementById("scannedTextMemo");
+      var scannedTextMemo = document.querySelector("#scannedTextMemo");
       if(scannedTextMemo)
       {
         scannedTextMemo.innerHTML = `Please Wait`;
@@ -12,7 +11,7 @@
     }
     
     //function returning a promise with a video stream
-    function provideVideoQQ()
+  function provideVideoQQ()
     {
         return navigator.mediaDevices.enumerateDevices()
         .then(function(devices) {
@@ -27,7 +26,7 @@
         }).then(function(ids){
             if(ids.length === 0)
             {
-              document.getElementById("scannedTextMemo").innerHTML = "Your device does not have a camera";
+              document.querySelector("#scannedTextMemo").innerHTML = "Your device does not have a camera";
             } else {
               var constraints= { video: { facingMode: "environment" } };
               return navigator.mediaDevices.getUserMedia(constraints);       
@@ -43,12 +42,12 @@
         var jbScanner = new JsQRScanner(onQRCodeScanned, provideVideoQQ);
         //reduce the size of analyzed images to increase performance on mobile devices
         jbScanner.setSnapImageMaxSize(300);
-      var scannerParentElement = document.getElementById("scanner");
+        var scannerParentElement = document.getElementById("scanner");
       if(scannerParentElement)
-      {
-          //append the jbScanner to an existing DOM element
-        jbScanner.appendTo(scannerParentElement);
-      }        
+        {
+            //append the jbScanner to an existing DOM element
+          jbScanner.appendTo(scannerParentElement);
+        }        
     }
 
     function restartCamera()
@@ -57,6 +56,3 @@
     }
 
     resetButton.addEventListener("click", restartCamera);
-
-
- 
